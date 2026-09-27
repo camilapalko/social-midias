@@ -1,0 +1,21 @@
+{
+  "slug": "luna",
+  "posts": [
+    {
+      "tipo": "estatico",
+      "editoria": "Teste",
+      "legenda": "Teste da ponte completa. Pode apagar depois.",
+      "data": "2026-12-01",
+      "hora": "18:00",
+      "imagem_url": "https://raw.githubusercontent.com/camilapalko/social-midias/main/luna/2026-09-23/01.jpg"
+    },
+    {
+      "tipo": "reel",
+      "editoria": "Teste",
+      "legenda": "Post de video, nasce esperando o arquivo.",
+      "data": "2026-12-02",
+      "hora": "18:00",
+      "prompt": "Drone descendo sobre Alfama ao por do sol, 9:16"
+    }
+  ]
+}
