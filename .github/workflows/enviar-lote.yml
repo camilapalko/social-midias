@@ -1,0 +1,56 @@
+name: Enviar lote para o dash
+
+on:
+  push:
+    branches: [main]
+    paths: ['**/lote.json']
+
+jobs:
+  enviar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Descobrir os lotes novos
+        id: lotes
+        run: |
+          git diff --name-only HEAD^ HEAD -- '**/lote.json' > /tmp/mudados.txt
+          echo "quantos=$(wc -l < /tmp/mudados.txt)" >> "$GITHUB_OUTPUT"
+          cat /tmp/mudados.txt
+
+      - name: Esperar o raw ficar disponivel
+        if: steps.lotes.outputs.quantos != '0'
+        run: sleep 20
+
+      - name: Enviar
+        if: steps.lotes.outputs.quantos != '0'
+        env:
+          TOKEN: ${{ secrets.SOCIAL_INGEST_TOKEN }}
+        run: |
+          set -euo pipefail
+          falhou=0
+          while read -r arquivo; do
+            [ -z "$arquivo" ] && continue
+            echo "::group::$arquivo"
+            resposta=$(curl -sS -w '\n%{http_code}' -X POST \
+              'https://cfyvbpxhcdnelcwhplyk.supabase.co/functions/v1/social-receber' \
+              -H 'Content-Type: application/json' \
+              -H "x-social-token: $TOKEN" \
+              --data-binary "@$arquivo")
+            codigo=$(echo "$resposta" | tail -n1)
+            corpo=$(echo "$resposta" | sed '$d')
+            echo "$corpo"
+            if [ "$codigo" != "200" ]; then
+              echo "::error file=$arquivo::falhou com HTTP $codigo"
+              falhou=1
+            else
+              recusados=$(echo "$corpo" | grep -o '"recusados":[0-9]*' | head -1 | cut -d: -f2)
+              if [ "${recusados:-0}" != "0" ]; then
+                echo "::warning file=$arquivo::$recusados post(s) recusado(s)"
+              fi
+            fi
+            echo "::endgroup::"
+          done < /tmp/mudados.txt
+          exit $falhou
