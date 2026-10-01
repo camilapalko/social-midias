@@ -58,7 +58,8 @@ Fotos: ajuste leve de cor (tirar amarelado); recorte de fundo só quando ficar n
 - Nunca inventar fato (receita, história, ingrediente) que não esteja aqui ou no briefing.
 
 ## 7. Fotos
-- Banco: `fotos/<categoria>/`, índice em `fotos/indice.json` (campo `original` = nome no Drive).
+- Banco: `fotos/<categoria>/`, copiado do Drive todo dia 19 (Apps Script). Índice em `fotos/indice.json` (`original` = nome no Drive, `reserva` = true para caseiras).
+- Os arquivos chegam no tamanho original e podem ser HEIC/PNG: ao usar, abra com Pillow + pillow-heif, aplique `ImageOps.exif_transpose`, converta para RGB e reduza para no máximo 2000 px antes de jogar em `_kit/prep/`.
 - **Prioridade:** fotos novas (não listadas em `usadas.json`) > fotos já usadas com outro enquadramento/modelo.
 - `fotos/caseiras/` é **reserva**: só use se não houver outra opção e o mês estiver repetindo demais. Avise na entrega quando usar.
 - `fotos/pascoa-*` e outras sazonais: só na época certa.
