@@ -1,9 +1,13 @@
 {
   "mes_ref": "2026-11",
   "perguntas": [
-    "Vai ter kit ou encomenda especial de Natal? A partir de quando e até que dia aceita pedidos?",
-    "Vai ter brinde corporativo de fim de ano para empresas? Qual pedido mínimo?",
-    "O cookie de churros vendeu bem? Mantém no cardápio?",
-    "Tem alguma data de folga ou agenda fechada em novembro?"
+    { "texto": "Quando abrem as encomendas de Natal e até que dia você aceita pedidos?", "tipo": "texto" },
+    { "texto": "Vai ter panetone neste Natal?", "tipo": "lista", "opcoes": ["Panetone e chocotone", "Só panetone", "Não este ano"] },
+    { "texto": "Vai ter algo especial de Natal no cardápio?", "tipo": "lista", "opcoes": ["Sabor especial de Natal", "Caixa ou lata de presente", "Os dois", "Nada especial"] },
+    { "texto": "Vai oferecer kit de brinde de fim de ano para empresas?", "tipo": "sim_nao" },
+    { "texto": "Se tiver kit para empresas: o que vai nele, qual o pedido mínimo e até quando aceita?", "tipo": "texto" },
+    { "texto": "Vai fazer alguma ação na Black Friday (27/11)?", "tipo": "lista", "opcoes": ["Desconto em brownies e cookies", "Combo ou kit especial", "Entrega grátis", "Não vou participar"] },
+    { "texto": "O cookie de churros, lançado em outubro, continua no cardápio?", "tipo": "sim_nao" },
+    { "texto": "Vai atender nos feriados de 2/11 (Finados) e 20/11 (Consciência Negra)?", "tipo": "lista", "opcoes": ["Atendo nos dois", "Só no dia 2", "Só no dia 20", "Fecho nos dois"] }
   ]
 }
