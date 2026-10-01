@@ -1,12 +1,53 @@
 {
   "mes_ref": "2026-11",
   "perguntas": [
-    { "texto": "Novembro já marca a virada para a Fase 2 (curadoria prática e destaque Rotas Secretas ativo)?", "tipo": "sim_nao" },
-    { "texto": "O perfil já passou de 300 seguidores? (libera a Pergunta da Luna no feed)", "tipo": "sim_nao" },
-    { "texto": "Como os Reels de novembro vão ser produzidos?", "tipo": "lista", "opcoes": ["HeyGen (Luna falando)", "Kling (ilustração animada)", "Adaptar para estático"] },
-    { "texto": "Como a Luna entra na Black Friday de passagens (27/11)?", "tipo": "lista", "opcoes": ["Dicas para caçar passagem barata", "Modo Caos da aba de voos", "Não falar de Black Friday"] },
-    { "texto": "Para o feriadão de 20 a 22/11, que tipo de destino puxar?", "tipo": "lista", "opcoes": ["Nacional, perto de casa", "Internacional", "Não usar o feriado"] },
-    { "texto": "Qual destino a Luna deve indicar primeiro para quem está planejando Réveillon e férias de janeiro?", "tipo": "texto" },
-    { "texto": "Mercados de Natal e inverno europeu entram no feed em novembro?", "tipo": "sim_nao" }
+    {
+      "texto": "Em qual fase o perfil está em novembro?",
+      "tipo": "lista",
+      "opcoes": [
+        "Fase 1: construir território",
+        "Fase 2: curadoria prática",
+        "Fase 3: antecipação e lista de espera"
+      ]
+    },
+    {
+      "texto": "O perfil já passou de 300 seguidores? (libera a Pergunta da Luna no feed)",
+      "tipo": "sim_nao"
+    },
+    {
+      "texto": "Como os Reels de novembro vão ser produzidos?",
+      "tipo": "lista",
+      "opcoes": [
+        "HeyGen (Luna falando)",
+        "Kling (ilustração animada)",
+        "Adaptar para estático"
+      ]
+    },
+    {
+      "texto": "Como a Luna entra na Black Friday de passagens (27/11)?",
+      "tipo": "lista",
+      "opcoes": [
+        "Dicas para caçar passagem barata",
+        "Modo Caos da aba de voos",
+        "Não falar de Black Friday"
+      ]
+    },
+    {
+      "texto": "Para o feriadão de 20 a 22/11, que tipo de destino puxar?",
+      "tipo": "lista",
+      "opcoes": [
+        "Nacional, perto de casa",
+        "Internacional",
+        "Não usar o feriado"
+      ]
+    },
+    {
+      "texto": "Qual destino a Luna deve indicar primeiro para quem está planejando Réveillon e férias de janeiro?",
+      "tipo": "texto"
+    },
+    {
+      "texto": "Mercados de Natal e inverno europeu entram no feed em novembro?",
+      "tipo": "sim_nao"
+    }
   ]
 }
