@@ -7,7 +7,7 @@
  *       GITHUB_TOKEN = seu token fine-grained (Contents: read and write)
  *  2. Rode a função "instalarGatilho" uma vez (cria o agendamento do dia 19, 23h).
  *  3. Rode "sincronizar" uma vez agora para copiar as fotos atuais.
- *     Se o log disser "continua na próxima execução", rode de novo até aparecer "0 foto(s) nova(s)".
+ *     Se não der tempo, ele se reagenda sozinho a cada 1 minuto até terminar (veja em Execuções).
  */
 const CFG = {
   owner: 'camilapalko',
@@ -22,6 +22,7 @@ const CFG = {
 function sincronizar() {
   const inicio = Date.now();
   const props = PropertiesService.getScriptProperties();
+  let faltou = false;
   const token = props.getProperty('GITHUB_TOKEN');
   if (!token) throw new Error('Falta a propriedade GITHUB_TOKEN');
 
@@ -45,8 +46,16 @@ function sincronizar() {
       }
     }
     atualizarIndice_(token, slug, props);
-    Logger.log(`[${slug}] ${novos} foto(s) nova(s)` + (acabou ? '' : ' · continua na próxima execução'));
+    Logger.log(`[${slug}] ${novos} foto(s) nova(s)` + (acabou ? '' : ' · continua sozinho em 1 minuto'));
+    if (!acabou) faltou = true;
   }
+  // Não terminou? agenda a continuação para daqui 1 minuto, até acabar.
+  if (faltou) ScriptApp.newTrigger('continuar').timeBased().after(60 * 1000).create();
+}
+
+function continuar() {
+  ScriptApp.getProjectTriggers().forEach(t => { if (t.getHandlerFunction() === 'continuar') ScriptApp.deleteTrigger(t); });
+  sincronizar();
 }
 
 function coletar_(pasta, categoria, lista) {
