@@ -1,13 +1,36 @@
 {
-  "mes_ref": "2026-11",
+  "mes_ref": "2026-12",
   "perguntas": [
-    { "texto": "Quando abrem as encomendas de Natal e até que dia você aceita pedidos?", "tipo": "texto" },
-    { "texto": "Vai ter panetone neste Natal?", "tipo": "lista", "opcoes": ["Panetone e chocotone", "Só panetone", "Não este ano"] },
-    { "texto": "Vai ter algo especial de Natal no cardápio?", "tipo": "lista", "opcoes": ["Sabor especial de Natal", "Caixa ou lata de presente", "Os dois", "Nada especial"] },
-    { "texto": "Vai oferecer kit de brinde de fim de ano para empresas?", "tipo": "sim_nao" },
-    { "texto": "Se tiver kit para empresas: o que vai nele, qual o pedido mínimo e até quando aceita?", "tipo": "texto" },
-    { "texto": "Vai fazer alguma ação na Black Friday (27/11)?", "tipo": "lista", "opcoes": ["Desconto em brownies e cookies", "Combo ou kit especial", "Entrega grátis", "Não vou participar"] },
-    { "texto": "O cookie de churros, lançado em outubro, continua no cardápio?", "tipo": "sim_nao" },
-    { "texto": "Vai atender nos feriados de 2/11 (Finados) e 20/11 (Consciência Negra)?", "tipo": "lista", "opcoes": ["Atendo nos dois", "Só no dia 2", "Só no dia 20", "Fecho nos dois"] }
+    {
+      "texto": "Até que dia você aceita encomendas de Natal e de Ano-Novo, e qual o último dia de retirada/entrega antes do Natal?",
+      "tipo": "texto"
+    },
+    {
+      "texto": "Como vai funcionar nos dias 24, 25 e 31/12 e 1/1? Vai ter folga ou férias coletivas em dezembro/janeiro?",
+      "tipo": "lista",
+      "opcoes": [
+        "Atendo normalmente",
+        "Atendo só até o meio-dia de 24 e 31",
+        "Fecho de 24/12 a 1/1",
+        "Férias coletivas (informar datas)"
+      ]
+    },
+    {
+      "texto": "Vai ter algo especial de Natal (sabor, panetone/chocotone, caixa ou lata de presente)? Se sim, quais itens, preços e prazo de pedido?",
+      "tipo": "texto"
+    },
+    {
+      "texto": "Vai oferecer kit de brinde de fim de ano para empresas? Se sim: o que vai no kit, preço, pedido mínimo e prazo.",
+      "tipo": "texto"
+    },
+    {
+      "texto": "O cookie de churros continua no cardápio em dezembro? E algum preço do cardápio vai mudar?",
+      "tipo": "lista",
+      "opcoes": [
+        "Churros continua e preços iguais",
+        "Churros sai do cardápio",
+        "Preços vão mudar (informar)"
+      ]
+    }
   ]
 }
