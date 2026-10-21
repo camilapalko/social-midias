@@ -43,11 +43,25 @@ Confeiteira: **Ju**. Retirada na Vila Regente Feijó (SP), das 9h às 21h.
 | Foto pura | `foto_pura` | Foto sem texto, logo como marca d'água |
 | Cartão de aviso | `vidro` | Novidade, datas, encomendas abertas, vagas para parceiros |
 | Exemplos completos | `_kit/exemplo_outubro.py` | Todas as artes aprovadas de outubro, com os parâmetros usados |
+| Foto com frase | `frase` | Foto inteira + uma frase curta (feriado, respiro entre posts de texto) |
+| Diário de produção | `diario` | Carrossel de bastidor: foto inteira + etiqueta escrita à mão |
+| Isto ou aquilo | `isto_ou_aquilo` | Duas fotos lado a lado com "ou": puxa comentário |
+| Antes e depois | `antes_depois` | Carrossel de 2 fotos (massa → pronto) |
+| Natal (nov-dez) | `natal_card`, `natal_menu`, `natal_dupla`, `natal_desfoque` | Rosa da marca + laço vermelho, ramos e estrelas douradas; foto em polaroid (serve para foto pequena); `natal_menu` aceita preço em branco (`None` → R$ ______) |
 
 Regras visuais: logo sempre como marca d'água pequena na área de cor; produto na parte livre do texto
 (espelhe a foto se preciso); texto curto; nada de emoji na arte; conferir cada arte renderizada
 antes de entregar (texto sobre o produto, título descentralizado, logo em cima do doce = refazer).
 Fotos: ajuste leve de cor (tirar amarelado); recorte de fundo só quando ficar natural; nunca doce gerado.
+
+**Variar (pedido da cliente em nov/2026: "está tudo muito igual"):** no mês, use pelo menos 5 modelos diferentes,
+nenhum modelo mais de 3 vezes; alterne foto inteira com cartão de texto; varie a abertura das legendas
+(pergunta, frase curta, POV, "conhece…?") em vez de começar sempre com exclamação; Reels com formatos diferentes
+(corte com som, POV, bastidor, parte comigo). Exemplo aprovado: `_kit/exemplo_novembro.py`.
+
+**Datas sazonais:** quando houver arquivo de referência em `briefing/` (ex.: `briefing/natal-2026.md`), ele vale como briefing
+do período. Natal entra aos poucos: teaser na 1ª semana de novembro, cardápio com encomendas abertas na 2ª, metade dos posts
+no fim do mês. Fotos próprias de Natal ficam em `fotos-natal/`.
 
 ## 6. Voz das legendas
 - Primeira pessoa (Ju), frases curtas, 1 a 3 emojis, exclamação nas chamadas. Sem hashtag.

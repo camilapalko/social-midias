@@ -342,6 +342,137 @@ def foto_pura(foto, pos="center", logo_pos="right:60px;top:56px"):
       <img src="prep/logo-t.png" style="position:absolute;width:200px;opacity:.72;{logo_pos}">''')
 
 
+# ---------- variação (novembro/2026) ----------
+def frase(foto, frase, sobre="", pos="center", lado="baixo"):
+    """Foto inteira com uma frase só, em letra cursiva + uma linha curta. Respiro: quase nada de texto."""
+    if lado == "baixo":
+        fd = fade(560, "60,42,30").replace("rgba(60,42,30,1) 0%, rgba(60,42,30,1) 38%", "rgba(60,42,30,.72) 0%, rgba(60,42,30,.55) 38%").replace("rgba(60,42,30,.75) 58%", "rgba(60,42,30,.25) 64%")
+        box = 'left:72px;right:72px;bottom:110px'
+        logo_css = 'right:56px;top:52px'
+    else:
+        fd = ('<div class="fade" style="top:0;bottom:auto;height:560px;background:linear-gradient(to bottom, rgba(60,42,30,.7), rgba(60,42,30,.4) 45%, rgba(60,42,30,0))"></div>')
+        box = 'left:72px;right:72px;top:100px'
+        logo_css = 'right:56px;bottom:52px'
+    sb = f'<div class="sobre" style="color:#F8D080">{sobre}</div>' if sobre else ''
+    return page(f'''<div class="bg" style="background-image:url(prep/{foto}.jpg);background-position:{pos}"></div>{fd}
+      <div style="position:absolute;{box}">{sb}<div style="font-family:Quicksand;font-weight:700;font-size:84px;line-height:1.05;color:#FFF6EC;text-shadow:0 2px 14px rgba(40,25,15,.45);margin-top:10px">{frase}</div></div>
+      <img src="prep/logo-t.png" style="position:absolute;{logo_css};width:170px;opacity:.8;filter:drop-shadow(0 0 14px rgba(255,255,255,.85))">''')
+
+def diario(foto, etiqueta, legenda, i, n, pos="center"):
+    """Carrossel 'diário de produção': foto inteira, etiqueta escrita à mão num papel claro."""
+    return page(f'''<div class="bg" style="background-image:url(prep/{foto}.jpg);background-position:{pos}"></div>
+      <div style="position:absolute;left:64px;bottom:110px;max-width:760px;background:#FFF8F1;border-radius:14px;padding:22px 40px 26px;transform:rotate(-2deg);box-shadow:0 14px 30px rgba(60,40,30,.28)">
+        <div style="font-family:Sacramento;font-size:96px;line-height:.9;color:var(--pforte)">{etiqueta}</div>
+        <div style="font-size:38px;line-height:1.25;margin-top:6px">{legenda}</div></div>
+      <img src="prep/logo-t.png" style="position:absolute;right:56px;top:52px;width:160px;opacity:.78;filter:drop-shadow(0 0 14px rgba(255,255,255,.85))">
+      <style>.dots{{left:auto;right:72px}} .dots i{{background:#FFF6EC;opacity:.6}} .dots i.on{{opacity:1}}</style>{dots(i,n)}''')
+
+def isto_ou_aquilo(f1, f2, a, b, pergunta, p1="center", p2="center"):
+    """Duas fotos lado a lado com 'ou' no meio: post para puxar comentário."""
+    rot = lambda t, lado: (f'<div style="position:absolute;{lado}:0;width:540px;bottom:120px;text-align:center"><span style="display:inline-block;font-family:Quicksand;font-weight:700;font-size:50px;'
+                           f'color:#FFF6EC;padding:12px 34px;border-radius:40px;background:rgba(70,50,38,.32);backdrop-filter:blur(10px)">{t}</span></div>')
+    return page(f'''<div class="bg" style="right:540px;background-image:url(prep/{f1}.jpg);background-position:{p1}"></div>
+      <div class="bg" style="left:540px;background-image:url(prep/{f2}.jpg);background-position:{p2}"></div>
+      <div style="position:absolute;left:536px;top:0;bottom:0;width:8px;background:#FFE9F7"></div>
+      <div style="position:absolute;left:0;right:0;top:0;height:330px;background:linear-gradient(to bottom, rgba(255,233,247,.96), rgba(255,233,247,.9) 55%, rgba(255,233,247,0))"></div>
+      <div style="position:absolute;left:72px;right:72px;top:80px;text-align:center" class="tit">{pergunta}</div>
+      <div style="position:absolute;left:50%;top:56%;transform:translate(-50%,-50%);width:150px;height:150px;border-radius:50%;background:#FFE9F7;border:3px solid #857055;display:flex;align-items:center;justify-content:center;font-family:Sacramento;font-size:92px;color:var(--pforte);padding-top:10px">ou</div>
+      {rot(a,"left")}{rot(b,"right")}''')
+
+def antes_depois(foto, etiqueta, texto, i, n, pos="center"):
+    """Carrossel antes/depois: foto inteira e um selo grande com a etapa."""
+    return page(f'''<div class="bg" style="background-image:url(prep/{foto}.jpg);background-position:{pos}"></div>
+      <div style="position:absolute;left:64px;top:70px;background:#FFE9F7;border-radius:60px;padding:16px 44px;font-family:Quicksand;font-weight:700;font-size:58px;box-shadow:0 10px 24px rgba(60,40,30,.2)">{etiqueta}</div>
+      {fade(380, "var(--rosaT)")}<div style="position:absolute;left:72px;right:260px;bottom:110px" class="corpo">{texto}</div>{LOGO_COR}{dots(i,n)}''')
+
+# ---------- Natal (rosa da marca + vermelho, dourado e verde da tag de Natal) ----------
+NATAL_V, NATAL_D, NATAL_G = "#B8323A", "#C99A3E", "#4E7A55"
+
+def _laco(x, y, s=1.0):
+    return (f'<svg style="position:absolute;left:{x}px;top:{y}px" width="{int(220*s)}" height="{int(150*s)}" viewBox="0 0 220 150">'
+            f'<path d="M110 70 C70 20 20 20 22 62 C24 98 76 92 110 74 Z M110 70 C150 20 200 20 198 62 C196 98 144 92 110 74 Z" fill="{NATAL_V}" stroke="#7E1F26" stroke-width="3" stroke-linejoin="round"/>'
+            f'<path d="M104 78 L70 140 L88 132 L96 148 L112 82 Z M116 78 L150 140 L132 132 L124 148 L108 82 Z" fill="{NATAL_V}" stroke="#7E1F26" stroke-width="3" stroke-linejoin="round"/>'
+            f'<rect x="96" y="58" width="28" height="28" rx="8" fill="#D2434B" stroke="#7E1F26" stroke-width="3"/></svg>')
+
+def _ramo(x, y, rot=0, s=1.0):
+    folhas = "".join(f'<path d="M{20+k*26} 40 l-14 -22 M{20+k*26} 40 l-14 22" stroke="{NATAL_G}" stroke-width="7" stroke-linecap="round"/>' for k in range(7))
+    return (f'<svg style="position:absolute;left:{x}px;top:{y}px;transform:rotate({rot}deg);transform-origin:0 50%" width="{int(220*s)}" height="{int(80*s)}" viewBox="0 0 220 80">'
+            f'<path d="M6 40 H210" stroke="{NATAL_G}" stroke-width="6" stroke-linecap="round"/>{folhas}'
+            f'<circle cx="200" cy="56" r="11" fill="{NATAL_V}"/><circle cx="180" cy="62" r="8" fill="{NATAL_D}"/></svg>')
+
+def natal_deco():
+    return (_ramo(-30, 40, 18) + _ramo(1110, 60, 162) + _laco(430, 20, .95) +
+            spark(120, 250, 46, NATAL_D) + spark(930, 260, 40, NATAL_D) + spark(70, 1180, 40, NATAL_D) + spark(980, 1150, 52, NATAL_D))
+
+def _polaroid(foto, w, h, rot, pos="center", extra=""):
+    return (f'<div style="background:#FFFDF9;padding:22px 22px 70px;border-radius:8px;transform:rotate({rot}deg);box-shadow:0 18px 34px rgba(90,40,30,.25);{extra}">'
+            f'<div style="width:{w}px;height:{h}px;background:url(prep/{foto}.jpg) {pos}/cover"></div></div>')
+
+def natal_card(titulo, sub, foto=None, i=0, n=1, sobre="Natal Cookies Land", pos="center", fw=560, fh=560, rot=-3, cls=""):
+    """Cartão de Natal: rosa, laço vermelho, ramos e estrelas douradas. Foto opcional em polaroid (boa para fotos pequenas)."""
+    if foto:
+        pol = f'<div style="position:absolute;left:50%;top:230px;transform:translateX(-50%)">{_polaroid(foto, fw, fh, rot, pos)}</div>'
+        txt = (f'<div style="position:absolute;left:90px;right:90px;top:{230 + fh + 140}px;text-align:center">'
+               f'<div class="sobre" style="color:{NATAL_V}">{sobre}</div><div class="tit" style="margin-top:12px;font-size:64px">{titulo}</div>'
+               f'<div class="corpo" style="margin-top:16px;font-size:38px">{sub}</div></div>')
+        logo = '<img src="prep/logo-t.png" style="position:absolute;right:46px;bottom:40px;width:110px;opacity:.7">'
+    else:
+        pol = ''
+        txt = (f'<div style="position:absolute;left:100px;right:100px;top:52%;transform:translateY(-50%);text-align:center">'
+               f'<div class="sobre" style="color:{NATAL_V}">{sobre}</div><div class="tit" style="margin-top:16px;font-size:96px">{titulo}</div>'
+               f'<div style="width:90px;height:3px;background:{NATAL_D};margin:36px auto 32px"></div>'
+               f'<div class="corpo" style="font-size:50px">{sub}</div></div>')
+        logo = '<img src="prep/logo-t.png" style="position:absolute;left:50%;transform:translateX(-50%);bottom:60px;width:170px;opacity:.7">'
+    return page(f'''{natal_deco()}{pol}{txt}{logo}
+      <style>.dots i{{background:{NATAL_V}}}</style>{dots(i,n)}''', cls)
+
+def natal_desfoque(foto, titulo, sub, pos="center"):
+    """Teaser: foto bem desfocada e cartão de Natal no meio."""
+    return page(f'''<div class="bg" style="inset:-60px;background-image:url(prep/{foto}.jpg);background-position:{pos};filter:blur(28px) saturate(1.1)"></div>
+      <div style="position:absolute;inset:0;background:rgba(255,233,247,.22)"></div>
+      <div style="position:absolute;left:110px;right:110px;top:50%;transform:translateY(-50%);background:rgba(255,233,247,.9);border-radius:44px;padding:110px 60px 80px;text-align:center;border:3px solid {NATAL_D}">
+        {_laco(330, -80, .9)}
+        <div class="tit" style="font-size:76px">{titulo}</div>
+        <div style="font-family:Sacramento;font-size:88px;color:{NATAL_V};margin-top:24px;line-height:1">{sub}</div></div>
+      {spark(120,160,56,NATAL_D)}{spark(900,1120,64,NATAL_D)}
+      <img src="prep/logo-t.png" style="position:absolute;left:50%;transform:translateX(-50%);bottom:50px;width:160px;opacity:.75">''')
+
+def natal_menu(titulo, peso, foto, linhas, precos, i, n, pos="center", nota="", fw=330, fh=330, intro="", compacto=False, sobre="Cardápio de Natal"):
+    """Cardápio de Natal: foto em polaroid no canto, sabores com descrição curta, preço em branco (R$ ___) até a marca confirmar.
+    linhas: [(sabor, descrição)]; precos: [(rótulo, valor ou None)]."""
+    pol = f'<div style="position:absolute;right:70px;top:110px">{_polaroid(foto, fw, fh, 4, pos)}</div>' if foto else _laco(820, 120, .9)
+    if compacto:
+        sab = "".join(f'<div style="font-size:34px;line-height:1.3;margin-bottom:16px"><b style="font-family:Quicksand;font-size:40px">{a}</b>'
+                      f'{(" · <span style=color:#857055>" + b + "</span>") if b else ""}</div>' for a, b in linhas)
+    else:
+        sab = "".join(f'<div style="margin-bottom:24px"><div style="font-family:Quicksand;font-weight:700;font-size:42px">{a}</div>'
+                      f'<div style="font-size:34px;line-height:1.3;color:var(--cacau)">{b}</div></div>' for a, b in linhas)
+    pr = "".join(f'<div style="display:flex;justify-content:space-between;align-items:baseline;font-family:Quicksand;font-weight:700;font-size:42px;padding:14px 0;border-bottom:2px solid var(--borda)">'
+                 f'<span>{r}</span><span style="color:{NATAL_V}">{"" if v is False else (("R$ " + v) if v else "R$ ______")}</span></div>' for r, v in precos)
+    pk = f'<span class="tag" style="background:#F6E2B8">{peso}</span>' if peso else ''
+    topo = 110 + fh + 130 if foto else (500 if intro else 400)
+    return page(f'''{pol}
+      <div style="position:absolute;left:72px;top:110px;width:{1080-72-fw-150 if foto else 700}px"><div class="sobre" style="color:{NATAL_V}">{sobre}</div>
+        <div class="tit" style="font-size:66px;margin:12px 0 16px">{titulo}</div>{pk}
+        {f'<div style="font-size:32px;line-height:1.3;margin-top:18px;color:var(--cacau)">{intro}</div>' if intro else ''}</div>
+      <div style="position:absolute;left:72px;right:72px;top:{topo}px">{sab}
+        <div style="margin-top:14px">{pr}</div>
+        {f'<div style="font-size:32px;color:var(--cacau);margin-top:18px">{nota}</div>' if nota else ''}</div>
+      {spark(960,1210,44,NATAL_D)}<img src="prep/logo-t.png" style="position:absolute;right:60px;bottom:30px;width:120px;opacity:.7">
+      <style>.dots i{{background:{NATAL_V}}}</style>{dots(i,n)}''', "creme")
+
+def natal_dupla(f1, f2, titulo, sub, a="", b="", p1="center", p2="center", pergunta=False):
+    """Duas fotos em polaroid (boa para fotos pequenas). pergunta=True põe o 'ou' no meio."""
+    meio = (f'<div style="position:absolute;left:50%;top:640px;transform:translate(-50%,-50%);width:130px;height:130px;border-radius:50%;background:#FFE9F7;border:3px solid {NATAL_D};'
+            f'display:flex;align-items:center;justify-content:center;font-family:Sacramento;font-size:80px;color:{NATAL_V};padding-top:8px;z-index:3">ou</div>') if pergunta else ''
+    lab = lambda t: f'<div style="text-align:center;font-family:Quicksand;font-weight:700;font-size:40px;margin-top:-56px;position:relative">{t}</div>' if t else ''
+    return page(f'''{natal_deco()}
+      <div style="position:absolute;left:60px;top:300px">{_polaroid(f1, 400, 520, -4, p1)}{lab(a)}</div>
+      <div style="position:absolute;right:60px;top:330px">{_polaroid(f2, 400, 520, 4, p2)}{lab(b)}</div>{meio}
+      <div style="position:absolute;left:80px;right:80px;top:1020px;text-align:center"><div class="tit" style="font-size:62px">{titulo}</div>
+        <div class="corpo" style="font-size:38px;margin-top:14px">{sub}</div></div>
+      <img src="prep/logo-t.png" style="position:absolute;right:46px;bottom:36px;width:110px;opacity:.7">''')
+
 
 def render(posts, saida="out", qualidade=90):
     """posts: {"nome": [html_slide, ...]} -> lista de arquivos JPEG por post."""

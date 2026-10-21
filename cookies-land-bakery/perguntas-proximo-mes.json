@@ -16,21 +16,25 @@
       ]
     },
     {
-      "texto": "Vai ter algo especial de Natal (sabor, panetone/chocotone, caixa ou lata de presente)? Se sim, quais itens, preços e prazo de pedido?",
+      "texto": "Quais são os preços do cardápio de Natal? (Chocottone, Browniettone, Brokiettone, travessas P e M, cone, guirlanda mini e sobremesa, Christmas Box com 1, 2 e 3 unidades)",
       "tipo": "texto"
     },
     {
-      "texto": "Vai oferecer kit de brinde de fim de ano para empresas? Se sim: o que vai no kit, preço, pedido mínimo e prazo.",
+      "texto": "Para empresas: qual o preço de cada brownie e do saquinho de mini cookies, e quanto é o desconto no Pix?",
       "tipo": "texto"
     },
     {
-      "texto": "O cookie de churros continua no cardápio em dezembro? E algum preço do cardápio vai mudar?",
+      "texto": "Já tem foto própria das sobremesas de travessa, do cone natalino, da guirlanda ou da Christmas Box? Se sim, coloque na pasta do Drive.",
       "tipo": "lista",
       "opcoes": [
-        "Churros continua e preços iguais",
-        "Churros sai do cardápio",
-        "Preços vão mudar (informar)"
+        "Sim, já coloquei no Drive",
+        "Vou fotografar até o dia 5",
+        "Ainda não"
       ]
+    },
+    {
+      "texto": "Vai ter algo especial de Ano-Novo? Se sim, o quê, preço e prazo de pedido.",
+      "tipo": "texto"
     }
   ]
 }
