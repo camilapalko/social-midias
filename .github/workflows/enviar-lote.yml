@@ -11,12 +11,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          fetch-depth: 0
 
       - name: Descobrir os lotes novos
         id: lotes
         run: |
-          git diff --name-only HEAD^ HEAD -- '**/lote.json' > /tmp/mudados.txt
+          antes='${{ github.event.before }}'
+          if [ -z "$antes" ] || [ "$antes" = "0000000000000000000000000000000000000000" ] || ! git cat-file -e "$antes" 2>/dev/null; then antes=HEAD^; fi
+          # todos os commits do push, não só o último; só lotes adicionados ou alterados (nunca apagados)
+          git diff --name-only --diff-filter=AM "$antes" HEAD -- '**/lote.json' > /tmp/mudados.txt
           echo "quantos=$(wc -l < /tmp/mudados.txt)" >> "$GITHUB_OUTPUT"
           cat /tmp/mudados.txt
 
