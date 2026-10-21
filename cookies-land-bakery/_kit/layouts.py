@@ -373,9 +373,9 @@ def isto_ou_aquilo(f1, f2, a, b, pergunta, p1="center", p2="center"):
                            f'color:#FFF6EC;padding:12px 34px;border-radius:40px;background:rgba(70,50,38,.32);backdrop-filter:blur(10px)">{t}</span></div>')
     return page(f'''<div class="bg" style="right:540px;background-image:url(prep/{f1}.jpg);background-position:{p1}"></div>
       <div class="bg" style="left:540px;background-image:url(prep/{f2}.jpg);background-position:{p2}"></div>
-      <div style="position:absolute;left:536px;top:0;bottom:0;width:8px;background:#FFE9F7"></div>
-      <div style="position:absolute;left:0;right:0;top:0;height:330px;background:linear-gradient(to bottom, rgba(255,233,247,.96), rgba(255,233,247,.9) 55%, rgba(255,233,247,0))"></div>
-      <div style="position:absolute;left:72px;right:72px;top:80px;text-align:center" class="tit">{pergunta}</div>
+      <div style="position:absolute;left:538px;top:0;bottom:0;width:4px;background:rgba(255,255,255,.55)"></div>
+      <div style="position:absolute;left:0;right:0;top:80px;text-align:center"><span class="tit" style="display:inline-block;color:#FFF6EC;font-size:78px;padding:18px 54px 24px;border-radius:60px;
+        background:rgba(70,50,38,.25);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);text-shadow:0 2px 12px rgba(60,40,30,.45)">{pergunta}</span></div>
       <div style="position:absolute;left:50%;top:56%;transform:translate(-50%,-50%);width:150px;height:150px;border-radius:50%;background:#FFE9F7;border:3px solid #857055;display:flex;align-items:center;justify-content:center;font-family:Sacramento;font-size:92px;color:var(--pforte);padding-top:10px">ou</div>
       {rot(a,"left")}{rot(b,"right")}''')
 

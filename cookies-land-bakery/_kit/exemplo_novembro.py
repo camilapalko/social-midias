@@ -1,5 +1,5 @@
-"""Novembro/2026 aprovado. Os blocos no fim (Natal refeito, v3 e v4) substituem os anteriores; vale o último.
-Fotos: rode exemplo_novembro_prep.py antes (+ x_teaser2 = x_choco_papai com GaussianBlur(9))."""
+"""Novembro/2026 aprovado. Os blocos no fim (Natal refeito, v3, v4, v5) substituem os anteriores; vale o último.
+Fotos: rode exemplo_novembro_prep.py antes (+ x_teaser2 = x_choco_papai com GaussianBlur(9); x_brownie_branco = brownies/vic00568)."""
 import sys, json, pathlib, shutil
 sys.path.insert(0, '/home/claude/social-midias/cookies-land-bakery/_kit')
 from layouts import *
@@ -200,6 +200,13 @@ P['05'] = [dourado(fato('x_choco_inteiro', '', 'Chocottone Trufado', 'Massa de c
 P['12'] = [dourado(fato('x_choco_corte', '', 'Qual sabor vai para a sua ceia?', 'Dois Amores, NinhoTella, Amaro, Pistacchio ou Morango Cravejado.', 0, 1, h=780, pos='center 40%', sobre='Chocottone Trufado'))]
 P['13'] = [dourado(fato('x_guirlanda2', '', 'Guirlanda de Brownie', 'Mini, para lembrancinha. Sobremesa, para a ceia.', 0, 1, h=780, pos='center 35%', sobre='Spoiler de Natal'))]
 P['16'] = [dourado(fato('x_brokiettone', '', 'Brokiettone Trufado', 'Camadas de brownie e cookie em formato de panettone, recheado. Cerca de 450g.', 0, 1, h=780, pos='center 40%', sobre='Spoiler de Natal'))]
+
+
+# ===== v5: ajustes finos =====
+P['08'][1] = dourado(menu('x_brownie_branco', [
+    ('Brownie recheado', '', [('6 x 6 cm · cerca de 100g', ''), ('5 x 5 cm · cerca de 70g', ''), ('4 x 4 cm · cerca de 45g', '')], 'Brigadeiro Branco, Brigadeiro ao Leite ou Casadinho.'),
+    ('Brownie com gotas', '', [('6 x 6 cm · cerca de 45g', ''), ('5 x 5 cm · cerca de 35g', '')], '')], 1, 4, pos='center 55%', fh=450, fs=36))
+P['09'] = [fato('x_browniettone', '', 'Browniettone Trufado', 'Brownie com gotas de chocolate em formato de panettone, recheado. Cerca de 450g.', 0, 1, pos='center 70%', topo=True, sobre='Spoiler de Natal')]
 
 so = sys.argv[1:]
 if so: P = {k: v for k, v in P.items() if k in so}
