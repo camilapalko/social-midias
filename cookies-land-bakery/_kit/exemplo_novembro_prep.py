@@ -42,4 +42,26 @@ prep(N/'browniettone-fatia.jpg', 'n_browniettone', minimo=900)
 prep(N/'brokiettone-topo.jpg', 'n_brokiettone', crop=(0, 0, 1, .78), minimo=900)
 prep(N/'pj-brownie-recheado.jpg', 'n_pj_brownie')
 prep(N/'pj-brownie-gotas-laco.png', 'n_pj_lacos', minimo=900)
+from PIL import ImageFilter
+C = B/'caseiras'
+F2 = {
+ 'x_choco_inteiro': (C/'img-9805_1MMh7T.heic', None),
+ 'x_choco_papai': (C/'img-9814_1jQ5Mx.heic', None),
+ 'x_choco_corte': (C/'img-9822_1NAH61.heic', None),
+ 'x_choco_corte2': (C/'img-9820_1U3JyJ.heic', None),
+ 'x_choco_dentro': (C/'img-9826_1gBgHx.heic', None),
+ 'x_guirlanda': (C/'img-0291_1SzCoG.heic', None),
+ 'x_guirlanda2': (C/'img-0289_1pql1f.heic', None),
+ 'x_browniettone': (C/'69be38d2-a74d-4e99-ad5d-01c56ae5bcc6_1qWrlP.jpg', None),
+ 'x_brokiettone': (C/'56f70966-9724-461d-87da-fb39d2c5c2f9_1dSbrH.jpg', (0, 0, 1, .8)),
+ 'x_choco_dourado': (C/'img-9908_1zQ1kG.jpg', None),
+ 'x_choco_dourado_corte': (C/'img-9914_1CBWxm.jpg', None),
+ 'x_pj_embalado': (C/'26d8c497-e1b6-4f8b-bd7d-02645ff68b3c_1fo6kh.jpg', None),
+ 'x_pj_pilha': (C/'83394f77-57b4-4bac-98ec-7f7ad0eef90c_1O_rXf.jpg', None),
+ 'n_pj_brownie': (N/'pj-brownie-recheado.jpg', None),
+}
+for k, (f, cr) in F2.items(): prep(f, k, crop=cr, minimo=1100)
+im = Image.open(P/'x_choco_inteiro.jpg'); im.filter(ImageFilter.GaussianBlur(40)).save(P/'x_teaser.jpg', quality=92)
+print('ok')
+
 print(sorted(p.name for p in P.glob('*.jpg')))

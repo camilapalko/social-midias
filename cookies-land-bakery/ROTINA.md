@@ -47,7 +47,8 @@ Confeiteira: **Ju**. Retirada na Vila Regente Feijó (SP), das 9h às 21h.
 | Diário de produção | `diario` | Carrossel de bastidor: foto inteira + etiqueta escrita à mão |
 | Isto ou aquilo | `isto_ou_aquilo` | Duas fotos lado a lado com "ou": puxa comentário |
 | Antes e depois | `antes_depois` | Carrossel de 2 fotos (massa → pronto) |
-| Natal (nov-dez) | `natal_card`, `natal_menu`, `natal_dupla`, `natal_desfoque` | Rosa da marca + laço vermelho, ramos e estrelas douradas; foto em polaroid (serve para foto pequena); `natal_menu` aceita preço em branco (`None` → R$ ______) |
+| Cardápio sem foto | `menu_texto` | Mesmo desenho do `menu`, para produto que ainda não tem foto própria |
+| Toque de Natal | `dourado(html)` | Duas estrelinhas douradas sobre qualquer modelo aprovado. **Natal usa os modelos aprovados** (capa, menu, vidro, colagem); os `natal_*` (laço, ramos, polaroid) foram recusados pela cliente em nov/2026 |
 
 Regras visuais: logo sempre como marca d'água pequena na área de cor; produto na parte livre do texto
 (espelhe a foto se preciso); texto curto; nada de emoji na arte; conferir cada arte renderizada
@@ -61,7 +62,7 @@ nenhum modelo mais de 3 vezes; alterne foto inteira com cartão de texto; varie 
 
 **Datas sazonais:** quando houver arquivo de referência em `briefing/` (ex.: `briefing/natal-2026.md`), ele vale como briefing
 do período. Natal entra aos poucos: teaser na 1ª semana de novembro, cardápio com encomendas abertas na 2ª, metade dos posts
-no fim do mês. Fotos próprias de Natal ficam em `fotos-natal/`.
+no fim do mês. Fotos de Natal em alta: estão em `fotos/caseiras/` (fotos de nov-dez/2025: chocottone, guirlanda, browniettone, brokiettone); podem ser usadas no Natal mesmo sendo de reserva. Preço ainda não confirmado: `__,__` no lugar do valor.
 
 ## 6. Voz das legendas
 - Primeira pessoa (Ju), frases curtas, 1 a 3 emojis, exclamação nas chamadas. Sem hashtag.

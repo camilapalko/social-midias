@@ -1,8 +1,10 @@
+"""Novembro/2026 aprovado na 2ª versão: os posts de Natal no fim do arquivo (bloco 'Natal refeito') substituem os primeiros.
+Fotos: rode exemplo_novembro_prep.py antes."""
 import sys, json, pathlib, shutil
 sys.path.insert(0, '/home/claude/social-midias/cookies-land-bakery/_kit')
 from layouts import *
 
-PASTA = '2026-10-21'
+PASTA = '2026-10-21-v2'
 OUT = pathlib.Path('/home/claude/social-midias/cookies-land-bakery') / PASTA
 TMP = pathlib.Path(__file__).parent / 'out_novembro'
 
@@ -107,6 +109,63 @@ P['16'] = [natal_card('Encomendas de Natal abertas!', 'Chocottone, Browniettone,
            pagamento('Como encomendar', PAG, 1, 2, cls='creme', sobre='Encomendas de Natal abertas', fs=38)]
 # 17 · Seg 30/11 · naked cake
 P['17'] = [frase('naked_frutas', 'Dezembro tem festa.<br>O bolo fica comigo.', 'Naked cake', pos='center 55%', lado='topo')]
+
+
+# ===== Natal refeito no padrão aprovado de outubro (fotos originais da pasta caseiras) =====
+Z = '__,__'
+def nome(a, b): return f'{a} <span style="font-size:27px;color:#857055">{b}</span>' if b else a
+P['04'] = [vidro('x_teaser', 'Tem novidade de Natal saindo do forno', 'Segunda-feira eu conto tudo.')]
+n = 7
+P['05'] = [
+ dourado(capa('x_choco_inteiro', 'Natal Cookies Land', 'Cardápio de Natal<br>encomendas abertas', 0, n, pos='center 55%', h=600)),
+ dourado(menu('x_choco_corte', [('Chocottone Trufado', 'cerca de 900g', [
+    (nome('Dois Amores', 'brigadeiro branco e ao leite'), Z), (nome('NinhoTella', 'Leite Ninho e Nutella'), Z),
+    (nome('Amaro', 'cacau com avelãs e meio amargo'), Z), (nome('Pistacchio', 'pistache e brigadeiro branco'), Z),
+    (nome('Morango Cravejado', 'brigadeiro branco e morango'), Z)], 'Todos com a moeda de chocolate dourada da marca no topo.')],
+    1, n, pos='center 45%', fh=600, fs=36)),
+ dourado(menu('x_browniettone', [('Browniettone Trufado', 'cerca de 450g', [
+    (nome('Dois Amores', ''), Z), (nome('NinhoTella', ''), Z), (nome('Amaro', ''), Z), (nome('Kinder Bueno', ''), Z),
+    (nome('Ovomaltine', ''), Z), (nome('Doce de Leite', ''), Z)], 'Brownie com gotas de chocolate em formato de panettone, recheado.')],
+    2, n, pos='center 75%', fh=560, fs=36, cls='rosa')),
+ dourado(menu('x_brokiettone', [('Brokiettone Trufado', 'cerca de 450g', [
+    (nome('Dois Amores', ''), Z), (nome('NinhoTella', ''), Z), (nome('Amaro', ''), Z), (nome('Kinder Bueno', ''), Z),
+    (nome('Ovomaltine', ''), Z), (nome('Doce de Leite', ''), Z)], 'Camadas de brownie e cookie em formato de panettone, com a moeda dourada no topo.')],
+    3, n, pos='center 40%', fh=560, fs=36)),
+ dourado(menu('x_guirlanda', [('Guirlanda de Brownie', '', [('Mini (lembrancinha)', Z), ('Sobremesa (ceia)', Z)],
+    'Brownie recheado com brigadeiros, confeitos e laço vermelho. Sabores: Dois Amores, NinhoTella, Amaro, Kinder Bueno, Ovomaltine e Ninho com Morangos.')],
+    4, n, pos='center 45%', fh=680, fs=38, cls='rosa')),
+ dourado(menu_texto('Cardápio de Natal · tem também', [
+    ('Sobremesas de travessa', 'P e M', [('Tamanho P', Z), ('Tamanho M', Z)], 'Banoffe, Uvoffe ou Merengue de Morango.'),
+    ('Cone Natalino', '', [('Cone recheado', Z)], 'Decorado como uma arvorezinha de Natal, em 6 sabores.'),
+    ('Christmas Box', '', [('1 unidade', Z), ('2 unidades', Z), ('3 unidades', Z)], 'Cookies e/ou brownies decorados, nos sabores que você escolher.')],
+    5, n, cls='creme', fs=36)),
+ pagamento('Como encomendar', PAG, 6, n, cls='rosa', sobre='Encomendas de Natal abertas', fs=38),
+]
+n = 4
+P['08'] = [
+ dourado(capa('n_pj_brownie', 'Natal para empresas', 'Lembrancinhas de Natal para a sua empresa', 0, n, pos='center 35%', h=620, cor='creme')),
+ dourado(menu('x_pj_pilha', [
+    ('Brownie recheado', '', [('6 x 6 cm · cerca de 100g', ''), ('5 x 5 cm · cerca de 70g', ''), ('4 x 4 cm · cerca de 45g', '')], 'Brigadeiro Branco, Brigadeiro ao Leite ou Casadinho.'),
+    ('Brownie com gotas', '', [('6 x 6 cm · cerca de 45g', ''), ('5 x 5 cm · cerca de 35g', '')], '')], 1, n, pos='center 35%', fh=450, fs=36)),
+ pagamento('Condições para empresas', [("selo", "Tag de Natal e laço de cetim em todos"), ("app", "Pedido mínimo: acima de 10 unidades"),
+    ("pix", "Preços promocionais e desconto extra no Pix"), ("cartao", "Boleto com prazo combinado"),
+    ("entrega", "Também tem saquinho com cerca de 6 mini cookies")], 2, n, cls='rosa', sobre='Natal para empresas', fs=38),
+ cta('Peça a tabela de Natal para empresas', 3, n, sub='WhatsApp no link da bio'),
+]
+P['09'] = [dourado(colagem('x_browniettone', 'x_brokiettone', 'Browniettone e Brokiettone',
+    'Panettone de brownie e de brownie com cookie, cerca de 450g e recheados.', 0, 1, p1='center 70%', p2='center 40%'))]
+P['12'] = [isto_ou_aquilo('x_choco_inteiro', 'x_browniettone', 'Chocottone', 'Browniettone', 'Qual vai para a sua ceia?', p1='60% 60%', p2='center 70%')]
+n = 3
+P['13'] = [
+ dourado(capa('x_guirlanda2', 'Presentes de Natal', 'Presente de Natal que se come', 0, n, pos='center 40%', h=600)),
+ dourado(menu_texto('Presentes de Natal', [
+    ('Christmas Box', '1, 2 ou 3', [], 'Cookies e/ou brownies recheados, decorados com tema de Natal. Você escolhe os sabores.'),
+    ('Guirlanda de Brownie', 'mini', [], 'A versão mini é feita para lembrancinha.'),
+    ('Cone Natalino', '', [], 'Um cone recheado e decorado como uma arvorezinha de Natal.')], 1, n, cls='creme', fs=40)),
+ cta('Escolha o seu presente pelo WhatsApp', 2, n),
+]
+P['16'] = [dourado(vidro('x_choco_dourado_corte', 'Encomendas de Natal abertas!', 'Chocottone, Browniettone, Brokiettone, guirlanda e muito mais.', 0, 2, pos='center 60%')),
+           pagamento('Como encomendar', PAG, 1, 2, cls='creme', sobre='Encomendas de Natal abertas', fs=38)]
 
 so = sys.argv[1:]
 if so: P = {k: v for k, v in P.items() if k in so}

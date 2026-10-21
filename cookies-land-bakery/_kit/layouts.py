@@ -473,6 +473,22 @@ def natal_dupla(f1, f2, titulo, sub, a="", b="", p1="center", p2="center", pergu
         <div class="corpo" style="font-size:38px;margin-top:14px">{sub}</div></div>
       <img src="prep/logo-t.png" style="position:absolute;right:46px;bottom:36px;width:110px;opacity:.7">''')
 
+def menu_texto(sobre, secoes, i, n, cls="rosa", fs=38):
+    """Cardápio sem foto (produto ainda sem foto própria), no mesmo desenho do `menu`. secoes: (titulo, tag, linhas[(nome, preço)], nota)."""
+    blocos = ""
+    for tit, tag, linhas, nota in secoes:
+        rows = "".join(f'<tr><td style="font-size:{fs}px;padding:10px 0">{a}</td><td class="p" style="font-size:{fs}px;padding:10px 0">{("R$ " + b) if b else ""}</td></tr>' for a, b in linhas)
+        tg = f'<span class="tag">{tag}</span>' if tag else ""
+        nt = f'<div style="font-size:{fs-6}px;color:var(--cacau);margin-top:8px;line-height:1.3">{nota}</div>' if nota else ""
+        blocos += f'<div style="margin-bottom:40px"><div style="display:flex;align-items:center;gap:20px;margin-bottom:6px"><div class="tit" style="font-size:56px">{tit}</div>{tg}</div><table>{rows}</table>{nt}</div>'
+    return page(f'''{spark(880,110,72)}{spark(980,230,46,"#F2B08C")}
+      <div style="position:absolute;left:72px;right:72px;top:120px"><div class="sobre">{sobre}</div><div style="height:40px"></div>{blocos}</div>
+      {LOGO_COR}{dots(i,n)}''', cls)
+
+def dourado(html):
+    """Toque de Natal discreto: duas estrelinhas douradas nos cantos, sem mudar o modelo aprovado."""
+    return html.replace('</body>', spark(60, 60, 54, "#E6C27A") + spark(150, 40, 30, "#E6C27A") + '</body>')
+
 
 def render(posts, saida="out", qualidade=90):
     """posts: {"nome": [html_slide, ...]} -> lista de arquivos JPEG por post."""
