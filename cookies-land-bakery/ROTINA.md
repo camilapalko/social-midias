@@ -63,6 +63,7 @@ nenhum modelo mais de 3 vezes; alterne foto inteira com cartão de texto; varie 
 **Datas sazonais:** quando houver arquivo de referência em `briefing/` (ex.: `briefing/natal-2026.md`), ele vale como briefing
 do período. Natal entra aos poucos: teaser na 1ª semana de novembro, cardápio com encomendas abertas na 2ª, metade dos posts
 no fim do mês. Fotos de Natal em alta: estão em `fotos/caseiras/` (fotos de nov-dez/2025: chocottone, guirlanda, browniettone, brokiettone); podem ser usadas no Natal mesmo sendo de reserva. Preço ainda não confirmado: `__,__` no lugar do valor.
+Spoiler/lançamento de produto: **uma foto só** (modelo `fato` com título curto + 1 frase), um produto por post; nada de "isto ou aquilo" com dois produtos de Natal nem carrossel de spoiler (pedido da cliente, nov/2026). Sem preço confirmado: não anunciar cardápio nem "encomendas abertas".
 
 ## 6. Voz das legendas
 - Primeira pessoa (Ju), frases curtas, 1 a 3 emojis, exclamação nas chamadas. Sem hashtag.

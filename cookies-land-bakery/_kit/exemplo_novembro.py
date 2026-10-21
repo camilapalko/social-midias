@@ -1,4 +1,4 @@
-"""Novembro/2026 aprovado. Os blocos no fim (Natal refeito e v3 spoilers) substituem os primeiros posts de Natal.
+"""Novembro/2026 aprovado. Os blocos no fim (Natal refeito, v3 e v4) substituem os anteriores; vale o último.
 Fotos: rode exemplo_novembro_prep.py antes (+ x_teaser2 = x_choco_papai com GaussianBlur(9))."""
 import sys, json, pathlib, shutil
 sys.path.insert(0, '/home/claude/social-midias/cookies-land-bakery/_kit')
@@ -193,6 +193,13 @@ P['16'] = [
 ]
 n = 4
 P['08'][3] = cta('Me chama e entra na lista da tabela de Natal', 3, n, sub='WhatsApp no link da bio')
+
+
+# ===== v4: spoilers com uma foto só (pedido da cliente) =====
+P['05'] = [dourado(fato('x_choco_inteiro', '', 'Chocottone Trufado', 'Massa de chocottone com camadas de creme e a moeda dourada da marca no topo. Cerca de 900g.', 0, 1, h=780, pos='center 55%', sobre='Spoiler de Natal'))]
+P['12'] = [dourado(fato('x_choco_corte', '', 'Qual sabor vai para a sua ceia?', 'Dois Amores, NinhoTella, Amaro, Pistacchio ou Morango Cravejado.', 0, 1, h=780, pos='center 40%', sobre='Chocottone Trufado'))]
+P['13'] = [dourado(fato('x_guirlanda2', '', 'Guirlanda de Brownie', 'Mini, para lembrancinha. Sobremesa, para a ceia.', 0, 1, h=780, pos='center 35%', sobre='Spoiler de Natal'))]
+P['16'] = [dourado(fato('x_brokiettone', '', 'Brokiettone Trufado', 'Camadas de brownie e cookie em formato de panettone, recheado. Cerca de 450g.', 0, 1, h=780, pos='center 40%', sobre='Spoiler de Natal'))]
 
 so = sys.argv[1:]
 if so: P = {k: v for k, v in P.items() if k in so}
