@@ -1,10 +1,10 @@
-"""Novembro/2026 aprovado na 2ª versão: os posts de Natal no fim do arquivo (bloco 'Natal refeito') substituem os primeiros.
-Fotos: rode exemplo_novembro_prep.py antes."""
+"""Novembro/2026 aprovado. Os blocos no fim (Natal refeito e v3 spoilers) substituem os primeiros posts de Natal.
+Fotos: rode exemplo_novembro_prep.py antes (+ x_teaser2 = x_choco_papai com GaussianBlur(9))."""
 import sys, json, pathlib, shutil
 sys.path.insert(0, '/home/claude/social-midias/cookies-land-bakery/_kit')
 from layouts import *
 
-PASTA = '2026-10-21-v2'
+PASTA = '2026-10-21'
 OUT = pathlib.Path('/home/claude/social-midias/cookies-land-bakery') / PASTA
 TMP = pathlib.Path(__file__).parent / 'out_novembro'
 
@@ -166,6 +166,33 @@ P['13'] = [
 ]
 P['16'] = [dourado(vidro('x_choco_dourado_corte', 'Encomendas de Natal abertas!', 'Chocottone, Browniettone, Brokiettone, guirlanda e muito mais.', 0, 2, pos='center 60%')),
            pagamento('Como encomendar', PAG, 1, 2, cls='creme', sobre='Encomendas de Natal abertas', fs=38)]
+
+
+# ===== v3: preços ainda não saíram -> spoilers de um produto por post (sem cardápio e sem "encomendas abertas") =====
+P['04'] = [vidro('x_teaser2', 'Tem novidade de Natal saindo do forno', 'Segunda-feira eu conto tudo.')]
+n = 4
+P['05'] = [
+ dourado(capa('x_choco_inteiro', 'Spoiler de Natal', 'Chocottone Trufado', 0, n, pos='center 55%', h=560)),
+ dourado(fato('x_choco_corte', '', 'Recheado de verdade', 'Massa de chocottone intercalada com camadas de creme. Cerca de 900g.', 1, n, pos='center 40%', sobre='O que vai dentro')),
+ dourado(lista('x_choco_corte2', 'Os sabores', 'Cinco recheios', ['Dois Amores', 'NinhoTella', 'Amaro', 'Pistacchio', 'Morango Cravejado'], 2, n, pos='center 45%', fh=470, fs=44)),
+ dourado(fato('x_choco_papai', '', 'E a moeda dourada no topo', 'Todo chocottone leva a moeda de chocolate da marca. Cardápio e encomendas em breve!', 3, n, pos='center 35%', sobre='O detalhe')),
+]
+P['09'] = [dourado(fato('x_browniettone', '', 'Browniettone Trufado', 'Brownie com gotas de chocolate em formato de panettone, recheado. Cerca de 450g.', 0, 1, pos='center 70%', topo=True, sobre='Spoiler de Natal'))]
+n = 4
+P['13'] = [
+ dourado(capa('x_guirlanda2', 'Spoiler de Natal', 'Guirlanda de Brownie', 0, n, pos='center 40%', h=560)),
+ dourado(fato('x_guirlanda', '', 'Duas versões', 'Mini, para lembrancinha. Sobremesa, para a ceia.', 1, n, pos='center 45%', sobre='Para presentear')),
+ dourado(lista('x_guirlanda2', 'Os sabores', 'Seis recheios', ['Dois Amores · NinhoTella', 'Amaro · Kinder Bueno', 'Ovomaltine · Ninho com Morangos'], 2, n, pos='center 30%', fh=520, fs=44)),
+ cta('Cardápio de Natal em breve', 3, n, sub='ativa as notificações'),
+]
+n = 3
+P['16'] = [
+ dourado(capa('x_brokiettone', 'Spoiler de Natal', 'Brokiettone Trufado', 0, n, pos='center 40%', h=560, cor='creme')),
+ dourado(lista('x_brokiettone', 'Brownie + cookie', 'Seis recheios', ['Dois Amores · NinhoTella', 'Amaro · Kinder Bueno', 'Ovomaltine · Doce de Leite'], 1, n, pos='center 70%', fh=520, fs=44)),
+ cta('Falta pouco para o cardápio de Natal', 2, n, sub='ativa as notificações'),
+]
+n = 4
+P['08'][3] = cta('Me chama e entra na lista da tabela de Natal', 3, n, sub='WhatsApp no link da bio')
 
 so = sys.argv[1:]
 if so: P = {k: v for k, v in P.items() if k in so}
