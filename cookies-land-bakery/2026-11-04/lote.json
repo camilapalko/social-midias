@@ -1,0 +1,68 @@
+{
+ "slug": "cookies-land-bakery",
+ "posts": [
+  {
+   "tipo": "reel",
+   "editoria": "O que vai dentro de cada um",
+   "legenda": "Isso… vira isso 🍫\n\nChocolate, manteiga, ovos e farinha viram brownie.\n\nPeça o seu pelo WhatsApp, o link está na bio 📲",
+   "data": "2026-11-16",
+   "hora": "18:00",
+   "imagem_url": "https://raw.githubusercontent.com/camilapalko/social-midias/main/cookies-land-bakery/2026-11-04/16-reel-isso-vira-isso-brownie.mp4",
+   "prompt": "Reel pronto (Isso vira isso · brownie, 5s). Música: corte o áudio para a virada cair na batida. Capa: escolher na hora de postar a imagem da pasta Capas (página de Reels)."
+  },
+  {
+   "tipo": "carrossel",
+   "editoria": "Doce que vira presente",
+   "legenda": "Amigo secreto, equipe, professora… já pensou nas lembrancinhas de fim de ano? 🎁\n\nCom tag personalizada, peça com 10 dias de antecedência; sem tag, 4 dias.\n\nMe conta para quantas pessoas que eu monto o seu. Peça pelo WhatsApp, o link está na bio 📲",
+   "data": "2026-11-18",
+   "hora": "18:00",
+   "imagens_url": [
+    "https://raw.githubusercontent.com/camilapalko/social-midias/main/cookies-land-bakery/2026-11-04/18_1.jpg",
+    "https://raw.githubusercontent.com/camilapalko/social-midias/main/cookies-land-bakery/2026-11-04/18_2.jpg",
+    "https://raw.githubusercontent.com/camilapalko/social-midias/main/cookies-land-bakery/2026-11-04/18_3.jpg"
+   ]
+  },
+  {
+   "tipo": "reel",
+   "editoria": "A mão na massa",
+   "legenda": "Pra assistir até o final 🤤\n\nOvo, massa caindo em fio, gotas e o corte do brownie.\n\nQual parte foi a sua favorita? 👇",
+   "data": "2026-11-19",
+   "hora": "18:00",
+   "imagem_url": "https://raw.githubusercontent.com/camilapalko/social-midias/main/cookies-land-bakery/2026-11-04/19-reel-da-tigela-ao-corte.mp4",
+   "prompt": "Reel pronto (Da tigela ao corte · satisfatório, 22s). Música: áudio calmo ou \"satisfatório\" em alta. Capa: escolher na hora de postar a imagem da pasta Capas (página de Reels)."
+  },
+  {
+   "tipo": "estatico",
+   "editoria": "O que vai dentro de cada um",
+   "legenda": "Feriado combina com pistache 💚\n\nCookie de 90g com pedacinhos de pistache por cima.\n\nJá provou?",
+   "data": "2026-11-20",
+   "hora": "18:00",
+   "imagem_url": "https://raw.githubusercontent.com/camilapalko/social-midias/main/cookies-land-bakery/2026-11-04/20.jpg"
+  },
+  {
+   "tipo": "estatico",
+   "editoria": "A mão na massa",
+   "legenda": "Cada bolinha moldada à mão, uma por uma 🤍\n\nÉ assim que o cookie ganha o formato e o recheio fica bem guardadinho lá dentro, fornada por fornada.\n\nVocê é do time que come a massa crua escondido? 👇",
+   "data": "2026-11-23",
+   "hora": "18:00",
+   "imagem_url": "https://raw.githubusercontent.com/camilapalko/social-midias/main/cookies-land-bakery/2026-11-04/23.jpg"
+  },
+  {
+   "tipo": "reel",
+   "editoria": "O que vai dentro de cada um",
+   "legenda": "Escolha um cookie e eu te digo quem você é 🍪\n\nChocolate, novidade, café da tarde ou daqueles que não divide com ninguém.\n\nComenta qual você escolheu 👇",
+   "data": "2026-11-26",
+   "hora": "18:00",
+   "imagem_url": "https://raw.githubusercontent.com/camilapalko/social-midias/main/cookies-land-bakery/2026-11-04/26-reel-escolha-um-cookie.mp4",
+   "prompt": "Reel pronto (Escolha um cookie, 15s). Música: áudio divertido/trend. Capa: escolher na hora de postar a imagem da pasta Capas (página de Reels)."
+  },
+  {
+   "tipo": "estatico",
+   "editoria": "Como pedir o seu",
+   "legenda": "O Natal daqui vem trufado 🎄\n\nChocottone, browniettone e brokiettone: cada um com recheios pensados para deixar a sua mesa ainda mais doce.\n\nO cardápio completo sai em breve por aqui ✨",
+   "data": "2026-11-27",
+   "hora": "18:00",
+   "imagem_url": "https://raw.githubusercontent.com/camilapalko/social-midias/main/cookies-land-bakery/2026-11-04/27.jpg"
+  }
+ ]
+}
