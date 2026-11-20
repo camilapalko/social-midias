@@ -1,40 +1,36 @@
 {
-  "mes_ref": "2026-12",
+  "mes_ref": "2027-01",
   "perguntas": [
     {
-      "texto": "Até que dia você aceita encomendas de Natal e de Ano-Novo, e qual o último dia de retirada/entrega antes do Natal?",
-      "tipo": "texto"
-    },
-    {
-      "texto": "Como vai funcionar nos dias 24, 25 e 31/12 e 1/1? Vai ter folga ou férias coletivas em dezembro/janeiro?",
+      "texto": "Vai ter folga ou férias em janeiro? Se sim, de que dia a que dia, e quando voltam as encomendas?",
       "tipo": "lista",
       "opcoes": [
-        "Atendo normalmente",
-        "Atendo só até o meio-dia de 24 e 31",
-        "Fecho de 24/12 a 1/1",
+        "Atendo normalmente em janeiro",
+        "Folga só de 1 a 3/1",
         "Férias coletivas (informar datas)"
       ]
     },
     {
-      "texto": "Quais são os preços do cardápio de Natal? (Chocottone, Browniettone, Brokiettone, travessas P e M, cone, guirlanda mini e sobremesa, Christmas Box com 1, 2 e 3 unidades)",
+      "texto": "Algum preço do cardápio muda em 2027? Se mudar, quais itens e os valores novos.",
       "tipo": "texto"
     },
     {
-      "texto": "Para empresas: qual o preço de cada brownie e do saquinho de mini cookies, e quanto é o desconto no Pix?",
+      "texto": "Tem novidade ou sabor novo para lançar em janeiro (algo de verão, por exemplo)? Nome, descrição e preço.",
       "tipo": "texto"
     },
     {
-      "texto": "Já tem foto própria das sobremesas de travessa, do cone natalino, da guirlanda ou da Christmas Box? Se sim, coloque na pasta do Drive.",
+      "texto": "Quer abrir vagas para novos parceiros (cafés, padarias, mercados) em janeiro? Quantas e para quais regiões?",
+      "tipo": "texto"
+    },
+    {
+      "texto": "Já tem fotos novas para o banco? Todas as fotos de brownie já saíram no feed, e de Natal não chegou nenhuma nova.",
       "tipo": "lista",
       "opcoes": [
-        "Sim, já coloquei no Drive",
-        "Vou fotografar até o dia 5",
+        "Sim, coloquei no Drive (brownies)",
+        "Sim, coloquei no Drive (produtos de Natal, para o ano que vem)",
+        "Vou fotografar em janeiro",
         "Ainda não"
       ]
-    },
-    {
-      "texto": "Vai ter algo especial de Ano-Novo? Se sim, o quê, preço e prazo de pedido.",
-      "tipo": "texto"
     }
   ]
 }
